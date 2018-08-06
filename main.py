@@ -15,9 +15,9 @@ logger = logging.getLogger(__name__)
 def get_fact():
     logging.info('getting fact')
 
-    response = requests.get('http://unkno.com')
+    r = requests.get('http://unkno.com')
 
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(r.content, 'html.parser')
     facts = soup.find_all('div', id='content')
 
     logging.info(facts[0].getText())
